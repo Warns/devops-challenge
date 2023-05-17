@@ -24,7 +24,7 @@ type AppConfig struct {
 
 func (cfg *AppConfig) GetPostgresDSN() string {
 	return fmt.Sprintf(
-		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		"host=%s port=%d user=%s password=%s dbname=%s sslmode=require",
 		cfg.PostgresHost, cfg.PostgresPort, cfg.PostgresUser, cfg.PostgresPassword, cfg.PostgresDbName,
 	)
 }

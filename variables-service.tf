@@ -91,7 +91,7 @@ variable "healthcheck" {
   default = {
     command = [
       "CMD-SHELL",
-      "wget  -t1 -nv -O /dev/null -q 'http://localhost:8080/actuator/health' || exit 1"
+      "wget  -t1 -nv -O /dev/null -q 'http://localhost:8080/health' || exit 1"
     ],
     retries     = 6
     timeout     = 30

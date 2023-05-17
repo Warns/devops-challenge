@@ -236,7 +236,7 @@ variable "AWS_LOGS_REGION" {
 variable "log_driver" {
   type        = string
   description = "The log driver to use for the container"
-  default     = "awsfirelens"
+  default     = "awslogs"
 }
 
 variable "firelens_log_driver" {

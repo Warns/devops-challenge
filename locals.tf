@@ -14,7 +14,7 @@ locals {
     }
   ]
 
-  db_postgres_url = module.rds_postgres_label.enabled ? "jdbc:postgresql://${module.rds_postgres_cluster.endpoint}:5432/${module.rds_postgres_cluster.database_name}" : "NA"
+  db_postgres_url = module.rds_postgres_label.enabled ? module.rds_postgres_cluster.endpoint : "NA"
   current_domain  = module.faceit_label.enabled ? module.faceit_route53_alias.hostnames[0] : "NA"
   #  cookie_domain         = data.aws_route53_zone.faceit_parent_zone.name
 

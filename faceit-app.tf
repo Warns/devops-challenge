@@ -98,7 +98,7 @@ module "faceit_ssm" {
 }
 
 module "faceit_container_definition" {
-  source = "modules/-aws-ecs-container-definition"
+  source = "./modules/aws-ecs-container-definition"
 
   container_name  = module.faceit_label.id
   container_image = var.faceit_container_image
@@ -115,49 +115,53 @@ module "faceit_container_definition" {
   log_configuration = var.cloudwatch_log_group_enabled ? {
     logDriver = var.log_driver
     options = {
-    }
-    secretOptions = null
-  } : null
-
-}
-
-module "faceit_firelens_container_definition" {
-  source = "modules/-aws-ecs-container-definition"
-
-  container_name  = var.firelens_sidecar_type.fluentbit
-  container_image = var.firelens_sidecar_image
-
-  environment = [
-    {
-      name  = "REGION"
-      value = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
-      }, {
-      name  = "LOG_GROUP_NAME"
-      value = module.faceit_label.id
-      }, {
-      name  = "LOG_STREAM_NAME"
-      value = join("/", [var.log_driver, module.faceit_label.name])
-  }]
-
-  log_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
-    logDriver = var.firelens_log_driver
-    options = {
-      "awslogs-group"         = join(module.this.delimiter, [module.faceit_label.id, var.firelens_sidecar_type.fluentbit])
+      "awslogs-group"         = module.faceit_label.id
+      "awslogs-region"        = data.aws_region.current.name
       "awslogs-stream-prefix" = var.log_driver
-      "awslogs-region"        = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
-      "awslogs-create-group"  = true
     }
+
     secretOptions = null
   } : null
-
-  firelens_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
-    type = var.firelens_sidecar_type.fluentbit
-    options = {
-      "config-file-type" : "file",
-      "config-file-value" : "/multi_endpoints.conf"
-    }
-  } : null
 }
+
+#
+#module "faceit_firelens_container_definition" {
+#  source = "./modules/aws-ecs-container-definition"
+#
+#  container_name  = var.firelens_sidecar_type.fluentbit
+#  container_image = var.firelens_sidecar_image
+#
+#  environment = [
+#    {
+#      name  = "REGION"
+#      value = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
+#      }, {
+#      name  = "LOG_GROUP_NAME"
+#      value = module.faceit_label.id
+#      }, {
+#      name  = "LOG_STREAM_NAME"
+#      value = join("/", [var.log_driver, module.faceit_label.name])
+#  }]
+#
+#  log_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
+#    logDriver = var.firelens_log_driver
+#    options = {
+#      "awslogs-group"         = join(module.this.delimiter, [module.faceit_label.id, var.firelens_sidecar_type.fluentbit])
+#      "awslogs-stream-prefix" = var.log_driver
+#      "awslogs-region"        = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
+#      "awslogs-create-group"  = true
+#    }
+#    secretOptions = null
+#  } : null
+#
+#  firelens_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
+#    type = var.firelens_sidecar_type.fluentbit
+#    options = {
+#      "config-file-type" : "file",
+#      "config-file-value" : "/multi_endpoints.conf"
+#    }
+#  } : null
+#}
 
 module "faceit_service" {
   source = "./modules/aws-ecs-web-app"
@@ -167,7 +171,7 @@ module "faceit_service" {
 
   # Container
   container_definition = module.faceit_container_definition.json_map_encoded
-  init_containers      = [{ container_definition = module.faceit_firelens_container_definition.json_map_encoded, condition = "START" }]
+#  init_containers      = [{ container_definition = module.faceit_firelens_container_definition.json_map_encoded, condition = "START" }]
 
   # Authentication
   authentication_type                           = var.authentication_type
@@ -187,6 +191,7 @@ module "faceit_service" {
   task_cpu                          = var.faceit_task_cpu
   task_memory                       = var.faceit_task_memory
   task_policy_arns                  = concat([aws_iam_policy.faceit_ssm_kms_policy.arn])
+  task_exec_policy_arns             = [aws_iam_policy.faceit_ssm_kms_policy.arn]
 
   # ALB
   alb_arn_suffix                               = module.faceit_alb.alb_arn_suffix
