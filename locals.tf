@@ -20,13 +20,13 @@ locals {
 
   faceit_parameter_write_dynamic = [
     {
-      name      = "DB_USERNAME"
+      name      = "POSTGRESQL_USER"
       value     = random_string.postgresdb_username.result
       type      = "SecureString"
       overwrite = "true"
     },
     {
-      name      = "DB_PASSWORD"
+      name      = "POSTGRESQL_PASSWORD"
       value     = random_password.postgresdb_password.result
       type      = "SecureString"
       overwrite = "true"
@@ -38,13 +38,19 @@ locals {
       overwrite = "true"
     },
     {
-      name      = "DB_URL"
+      name      = "POSTGRESQL_HOST"
       value     = local.db_postgres_url
       type      = "String"
       overwrite = "true"
     },
     {
-      name      = "SERVER_PORT"
+      name      = "POSTGRESQL_DBNAME"
+      value     = module.rds_postgres_label.name
+      type      = "String"
+      overwrite = "true"
+    },
+    {
+      name      = "PORT"
       value     = var.faceit_container_port
       type      = "String"
       overwrite = "true"

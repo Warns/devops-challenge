@@ -98,7 +98,7 @@ module "faceit_ssm" {
 }
 
 module "faceit_container_definition" {
-  source = "./modules/aws-ecs-container-definition"
+  source = "modules/-aws-ecs-container-definition"
 
   container_name  = module.faceit_label.id
   container_image = var.faceit_container_image
@@ -122,7 +122,7 @@ module "faceit_container_definition" {
 }
 
 module "faceit_firelens_container_definition" {
-  source = "./modules/aws-ecs-container-definition"
+  source = "modules/-aws-ecs-container-definition"
 
   container_name  = var.firelens_sidecar_type.fluentbit
   container_image = var.firelens_sidecar_image

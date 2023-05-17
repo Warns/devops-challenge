@@ -63,7 +63,7 @@ module "alb_ingress" {
 }
 
 module "container_definition" {
-  source         = "../aws-ecs-container-definition"
+  source         = "../-aws-ecs-container-definition"
   container_name = module.this.id
   #container_image              = var.use_ecr_image ? module.ecr.repository_url : var.container_image
   container_image              = var.container_image
@@ -130,7 +130,7 @@ locals {
 }
 
 module "ecs_alb_service_task" {
-  source = "../aws-ecs-alb-service-task"
+  source = "../-aws-ecs-alb-service-task"
 
   alb_security_group                = var.alb_security_group
   use_alb_security_group            = var.use_alb_security_group
@@ -169,7 +169,7 @@ module "ecs_alb_service_task" {
 
 module "ecs_cloudwatch_autoscaling" {
   enabled               = var.autoscaling_enabled
-  source                = "../aws-ecs-cloudwatch-autoscaling"
+  source                = "../-aws-ecs-cloudwatch-autoscaling"
   name                  = var.name
   namespace             = var.namespace
   stage                 = var.stage
@@ -192,7 +192,7 @@ locals {
 }
 
 module "ecs_cloudwatch_sns_alarms" {
-  source  = "../aws-ecs-cloudwatch-sns-alarms"
+  source  = "../-aws-ecs-cloudwatch-sns-alarms"
   enabled = var.ecs_alarms_enabled
 
   cluster_name = var.ecs_cluster_name

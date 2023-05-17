@@ -260,7 +260,7 @@ variable "firelens_sidecar_type" {
 variable "firelens_sidecar_image" {
   type        = string
   description = "Firelens container image: fluentbit - fluentd"
-  default     = "072271489564.dkr.ecr.eu-west-1.amazonaws.com/fluentbit:latest"
+  default     = "093013615152.dkr.ecr.eu-west-1.amazonaws.com/fluentbit:latest"
 }
 
 variable "cw_log_retention_in_days" {
