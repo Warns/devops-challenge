@@ -223,12 +223,6 @@ variable "storage_encrypted" {
   default     = false
 }
 
-variable "storage_type" {
-  type        = string
-  description = "One of 'standard' (magnetic), 'gp2' (general purpose SSD), or 'io1' (provisioned IOPS SSD)"
-  default     = "gp2"
-}
-
 variable "iops" {
   type        = number
   description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1'. This setting is required to create a Multi-AZ DB cluster. Check TF docs for values based on db engine"

@@ -1,10 +1,9 @@
 enabled           = true
 namespace         = "faceit"
-environment       = "prod"
-name              = "challenge"
-delimiter         = "-"
 top_level_domain  = "challenge-task.link."
 enable_faceit_app = true
+
+vpc_cidr_block = "172.16.0.0/16"
 
 faceit_cidr_block = "172.16.128.0/21"
 

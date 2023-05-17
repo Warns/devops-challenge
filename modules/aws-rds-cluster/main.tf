@@ -82,7 +82,6 @@ resource "aws_rds_cluster" "primary" {
   apply_immediately                   = var.apply_immediately
   db_cluster_instance_class           = local.is_serverless ? null : var.db_cluster_instance_class
   storage_encrypted                   = local.is_serverless ? null : var.storage_encrypted
-  storage_type                        = var.storage_type
   iops                                = var.iops
   allocated_storage                   = var.allocated_storage
   kms_key_id                          = var.kms_key_arn

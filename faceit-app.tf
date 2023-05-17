@@ -2,6 +2,7 @@ module "faceit_label" {
   source = "./modules/labels"
 
   enabled = var.enable_faceit_app
+  name    = "go"
 
   context = module.this.context
 }

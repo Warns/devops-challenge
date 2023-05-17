@@ -25,9 +25,11 @@ module "this" {
 
   enabled             = var.enabled
   namespace           = var.namespace
+#  namespace           = terraform.workspace
   tenant              = var.tenant
   environment         = var.environment
-  stage               = var.stage
+#  stage               = var.stage
+  stage               = terraform.workspace
   name                = var.name
   delimiter           = var.delimiter
   attributes          = var.attributes

@@ -5,6 +5,11 @@ variable "availability_zones" {
   default     = ["eu-west-1a", "eu-west-1b"]
 }
 
+variable "vpc_cidr_block" {
+  type        = string
+  description = "VPC CIDR block"
+}
+
 ############### ECR ###############
 variable "enable_ecr" {
   type        = bool
