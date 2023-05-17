@@ -21,18 +21,6 @@ variable "enable_dns_support" {
   default     = true
 }
 
-variable "enable_classiclink" {
-  type        = bool
-  description = "A boolean flag to enable/disable ClassicLink for the VPC"
-  default     = false
-}
-
-variable "enable_classiclink_dns_support" {
-  type        = bool
-  description = "A boolean flag to enable/disable ClassicLink DNS Support for the VPC"
-  default     = false
-}
-
 variable "security_group_enabled" {
   type        = bool
   description = "Whether to create default Security Group for VPC."
