@@ -1,8 +1,8 @@
 module "faceit_sub_zone" {
   source = "./modules/aws-route53-cluster-zone"
 
-  parent_zone_name = data.aws_route53_zone.faceit_parent_zone.name
-  #  parent_zone_name           = "challenge-task.link"
+#  parent_zone_name = data.aws_route53_zone.faceit_parent_zone.name
+  parent_zone_name           = "challenge-task.link."
   zone_name                  = join(".", [module.this.stage, module.faceit_sub_zone.parent_zone_name])
   parent_zone_record_enabled = true
 

@@ -1,3 +1,4 @@
 /local-terraform.sh
 /.env
 /.idea/
+/plan

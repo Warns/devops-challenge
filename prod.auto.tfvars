@@ -3,7 +3,7 @@ namespace         = "faceit"
 environment       = "prod"
 name              = "challenge"
 delimiter         = "-"
-top_level_domain  = "challenge-task.nl."
+top_level_domain  = "challenge-task.link."
 enable_faceit_app = true
 
 faceit_cidr_block = "172.16.128.0/21"

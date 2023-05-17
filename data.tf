@@ -30,10 +30,10 @@ data "aws_region" "current" {
 
 }
 
-data "aws_route53_zone" "faceit_parent_zone" {
-  name         = join(".", [module.this.namespace, var.top_level_domain])
-  private_zone = false
-}
+#data "aws_route53_zone" "faceit_parent_zone" {
+#  name         = join(".", [module.this.namespace, var.top_level_domain])
+#  private_zone = false
+#}
 
 data "aws_iam_policy_document" "kms_cw_policy" {
   statement {
