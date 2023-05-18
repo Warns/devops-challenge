@@ -1,4 +1,5 @@
 ## Mert Alnuaimi - Solution
+The repository is made into a fully working Terraform deployment with the application running live at:<br>https://go.app.faceit.challenge-task.link/health
 ### FACEIT Infra Diagram
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
 
