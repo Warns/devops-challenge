@@ -124,44 +124,6 @@ module "faceit_container_definition" {
   } : null
 }
 
-#
-#module "faceit_firelens_container_definition" {
-#  source = "./modules/aws-ecs-container-definition"
-#
-#  container_name  = var.firelens_sidecar_type.fluentbit
-#  container_image = var.firelens_sidecar_image
-#
-#  environment = [
-#    {
-#      name  = "REGION"
-#      value = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
-#      }, {
-#      name  = "LOG_GROUP_NAME"
-#      value = module.faceit_label.id
-#      }, {
-#      name  = "LOG_STREAM_NAME"
-#      value = join("/", [var.log_driver, module.faceit_label.name])
-#  }]
-#
-#  log_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
-#    logDriver = var.firelens_log_driver
-#    options = {
-#      "awslogs-group"         = join(module.this.delimiter, [module.faceit_label.id, var.firelens_sidecar_type.fluentbit])
-#      "awslogs-stream-prefix" = var.log_driver
-#      "awslogs-region"        = coalesce(var.AWS_LOGS_REGION, data.aws_region.current.name)
-#      "awslogs-create-group"  = true
-#    }
-#    secretOptions = null
-#  } : null
-#
-#  firelens_configuration = var.cloudwatch_log_group_enabled && module.faceit_label.enabled ? {
-#    type = var.firelens_sidecar_type.fluentbit
-#    options = {
-#      "config-file-type" : "file",
-#      "config-file-value" : "/multi_endpoints.conf"
-#    }
-#  } : null
-#}
 
 module "faceit_service" {
   source = "./modules/aws-ecs-web-app"
@@ -171,7 +133,6 @@ module "faceit_service" {
 
   # Container
   container_definition = module.faceit_container_definition.json_map_encoded
-#  init_containers      = [{ container_definition = module.faceit_firelens_container_definition.json_map_encoded, condition = "START" }]
 
   # Authentication
   authentication_type                           = var.authentication_type

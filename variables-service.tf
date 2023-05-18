@@ -4,12 +4,6 @@ variable "enable_faceit_app" {
   description = "Enable/Disable faceit app"
 }
 
-#variable "service_name" {
-#  type        = string
-#  description = "Name Of Portal Backend"
-#  default     = "faceit"
-#}
-
 variable "faceit_cidr_block" {
   type        = string
   description = "Faceit CIDR block"
@@ -156,7 +150,7 @@ variable "faceit_autoscaling_scale_down_cooldown" {
 
 variable "faceit_alb_ingress_healthcheck_path" {
   type        = string
-  description = "The path of the proxy-issuer healthcheck which the ALB checks"
+  description = "The path of the faceit healthcheck which the ALB checks"
   default     = "/health"
 }
 
