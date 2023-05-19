@@ -8,7 +8,7 @@ RUN go mod download
 COPY cmd/ops-test-app ./cmd/ops-test-app
 RUN CGO_ENABLED=0 GOOS=linux go build -o app ./cmd/ops-test-app
 
-FROM alpine:3.14
+FROM alpine:3.18
 
 WORKDIR /app
 COPY --from=build /app/app .
