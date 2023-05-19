@@ -1,5 +1,7 @@
 ## Mert Alnuaimi - Solution
-The repository is made into a fully working Terraform deployment with the application running live on AWS at:<br>https://go.app.faceit.challenge-task.link/health
+
+The repository is converted into a scalable, zone-redundant, and fault-tolerant Terraform deployment, leveraging AWS's 3-tier, multi-AZ architecture with autoscaling and metrics monitoring. Access the live application on AWS at: <br>https://go.app.faceit.challenge-task.link/health.
+
 ### FACEIT Infra Diagram
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
 
