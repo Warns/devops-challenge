@@ -12,7 +12,6 @@ variable "faceit_cidr_block" {
 variable "faceit_container_image" {
   type        = string
   description = "The default container image to use in container definition"
-  default     = "093013615152.dkr.ecr.eu-west-1.amazonaws.com/faceit-app:latest"
 }
 
 variable "faceit_container_port" {

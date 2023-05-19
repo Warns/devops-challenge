@@ -9,22 +9,12 @@ faceit_cidr_block = "172.16.128.0/21"
 
 rds_postgres_cidr_block = "172.16.3.0/24"
 
+faceit_container_image = "093013615152.dkr.ecr.eu-west-1.amazonaws.com/faceit-app:1.0.0"
+
 faceit_parameter_write = [
   {
-    name      = "CGO_ENABLED"
-    value     = "0"
-    type      = "String"
-    overwrite = "true"
-  },
-  {
-    name      = "GOOS"
-    value     = "linux"
-    type      = "String"
-    overwrite = "true"
-  },
-  {
-    name      = "GOARCH"
-    value     = "amd64"
+    name      = "PARAMETER"
+    value     = "CUSTOM_VALUE"
     type      = "String"
     overwrite = "true"
   }
