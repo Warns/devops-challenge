@@ -15,7 +15,56 @@ Notes:
 - The solution does not include the OpenSearch part mentioned in the diagram as it wasn't eligible for my AWS Free Tier.
 - The solution uses modified [CloudPosse](https://github.com/cloudposse) Terraform modules with root module customizations.
 
+### Example Successful response:
+```text
+ devops-challenge  develop !2  curl -v https://go.app.faceit.challenge-task.link/health                                                                         ✔  49s  app 
 
+*   Trying 52.30.254.67:443...
+* Connected to go.app.faceit.challenge-task.link (52.30.254.67) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*  CAfile: /etc/ssl/cert.pem
+*  CApath: none
+* (304) (OUT), TLS handshake, Client hello (1):
+* (304) (IN), TLS handshake, Server hello (2):
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=go.app.faceit.challenge-task.link
+*  start date: May 17 00:00:00 2023 GMT
+*  expire date: Jun 14 23:59:59 2024 GMT
+*  subjectAltName: host "go.app.faceit.challenge-task.link" matched cert's "go.app.faceit.challenge-task.link"
+*  issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M02
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multiplexing
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x7f9f2f00e200)
+> GET /health HTTP/2
+> Host: go.app.faceit.challenge-task.link
+> user-agent: curl/7.79.1
+> accept: */*
+>
+* Connection state changed (MAX_CONCURRENT_STREAMS == 128)!
+< HTTP/2 200
+< date: Fri, 19 May 2023 14:13:20 GMT
+< content-type: text/plain; charset=utf-8
+< content-length: 3
+< set-cookie: AWSALB=oo3HvW09ZnsVxpLjqjJSyk7YE1qq007MCq+FlGOkNQ4sKCWjdl13Zii63E7RpKSVJ5VgAC/gSUD89Fgkiqnf0XgmxWyvhhg4N7ZPrMI4OrPCOXToDJoz4TpsEgRe; Expires=Fri, 26 May 2023 14:13:20 GMT; Path=/
+< set-cookie: AWSALBCORS=oo3HvW09ZnsVxpLjqjJSyk7YE1qq007MCq+FlGOkNQ4sKCWjdl13Zii63E7RpKSVJ5VgAC/gSUD89Fgkiqnf0XgmxWyvhhg4N7ZPrMI4OrPCOXToDJoz4TpsEgRe; Expires=Fri, 26 May 2023 14:13:20 GMT; Path=/; SameSite=None; Secure
+<
+UP
+* Connection #0 to host go.app.faceit.challenge-task.link left intact
+```
 
 
 
