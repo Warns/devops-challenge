@@ -16,7 +16,7 @@ Notes:
 - The solution uses modified [CloudPosse](https://github.com/cloudposse) Terraform modules with root module customizations.
 
 ### Example Successful response:
-```text
+```html
  devops-challenge  develop !2  curl -v https://go.app.faceit.challenge-task.link/health                                                                         ✔  49s  app 
 
 *   Trying 52.30.254.67:443...
