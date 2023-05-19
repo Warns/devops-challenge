@@ -66,7 +66,7 @@ UP
 * Connection #0 to host go.app.faceit.challenge-task.link left intact
 ```
 
-
+---
 
 
 # FACEIT DevOps Challenge
