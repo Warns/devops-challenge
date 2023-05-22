@@ -6,6 +6,7 @@ The repository is converted into a scalable, zone-redundant, and fault-tolerant 
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
 
 ### FACEIT CICD Diagram
+This is a CICD flow with replaceable and pluggable components which can work for both ECS or EKS.
 ![faceit-cicd-diagram](diagrams/faceit_cicd.png)
 
 Notes:
