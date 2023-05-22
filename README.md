@@ -1,6 +1,6 @@
 ## Mert Alnuaimi - Solution
 
-The repository is converted into a scalable, zone-redundant, and fault-tolerant Terraform deployment, leveraging AWS's 3-tier, multi-AZ architecture with autoscaling and metrics monitoring. Access the live application on AWS at: https://go.app.faceit.challenge-task.link/health <br>_(Will be up during work hours until evaluated by FACEIT team)_
+The repository is converted into a scalable, zone-redundant, and fault-tolerant Terraform deployment, leveraging AWS's 3-tier, multi-AZ architecture with autoscaling and metrics monitoring. <br><br>Access the live application on AWS at: https://go.app.faceit.challenge-task.link/health <br>_(Will be up during work hours until evaluated by FACEIT team)_
 
 ### FACEIT Infra Diagram
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
