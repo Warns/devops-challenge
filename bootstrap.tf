@@ -1,3 +1,8 @@
+#####
+# This is used to bootstrap an empty shell AWS account with Route53 zone registration and remote state backend creation. 
+# This will be a separate repository with more global configurations such as enabling GuardDuty.
+#####
+
 ## Create zone
 #module "bootstrap_zone" {
 #  source = "./modules/bootstrap-cluster-zone"
@@ -51,3 +56,13 @@
 #    type = "S"
 #  }
 #}
+
+# module "faceit_ecr" {
+#   source = "./modules/aws-ecr"
+
+#   enabled              = var.enable_ecr
+#   scan_images_on_push  = var.ecr_scan_images_on_push
+#   image_tag_mutability = var.ecr_image_tag_mutability
+
+#   context = module.this.context
+# }
