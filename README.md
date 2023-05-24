@@ -22,7 +22,7 @@ Notes:
 
 ### Example Successful response:
 ```html
- devops-challenge  develop !2  curl -v https://go.app.faceit.challenge-task.link/health                                                                         ✔  49s  app 
+curl -v https://go.app.faceit.challenge-task.link/health                                                                         ✔  49s  app 
 
 *   Trying 52.30.254.67:443...
 * Connected to go.app.faceit.challenge-task.link (52.30.254.67) port 443 (#0)
