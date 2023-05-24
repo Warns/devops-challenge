@@ -11,6 +11,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o app ./cmd/ops-test-app
 FROM alpine:3.18
 
 WORKDIR /app
+
+USER nobody:nobody
 COPY --from=build /app/app .
 
 ENV PORT=8080
