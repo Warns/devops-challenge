@@ -12,6 +12,7 @@ This is a CICD flow with replaceable and pluggable components which can work for
 
 Notes:
 - The solution dockerizes the Go application and pushes it to ECR.
+- Github Actions workflow builds and tags the docker image, scans the image with Trivy and then, if succeeded, pushes the image to ECR.
 - The application is deployed to an ECS cluster in 2 AZs.
 - The application is fronted with an ALB for load balancing.
 - The application receives the RDS Postgres credentials as environment variables in the container runtime.
@@ -19,7 +20,6 @@ Notes:
 - The solution does not include the OpenSearch part mentioned in the diagram as it wasn't eligible for my AWS Free Tier.
 - The solution uses modified [CloudPosse](https://github.com/cloudposse) Terraform modules with root module customizations.
 - The Terraform modules allows enabling/disabling modules on demand depending on environment or service needs without code duplication or separate environment directories. It removes the requirement for Terragrunt. The modules can also be modified to incorporate into Terragrunt way of handling environments and multi-region.
-- 
 
 
 Deliver the tooling to set up the application using Terraform on the cloud platform of your choice (free tiers are fine)
