@@ -19,7 +19,13 @@ Notes:
 - The solution does not include the OpenSearch part mentioned in the diagram as it wasn't eligible for my AWS Free Tier.
 - The solution uses modified [CloudPosse](https://github.com/cloudposse) Terraform modules with root module customizations.
 - The Terraform modules allows enabling/disabling modules on demand depending on environment or service needs without code duplication or separate environment directories. It removes the requirement for Terragrunt. The modules can also be modified to incorporate into Terragrunt way of handling environments and multi-region.
+- 
 
+
+Deliver the tooling to set up the application using Terraform on the cloud platform of your choice (free tiers are fine)
+Provide basic architecture diagrams and documentation on how to initialise the infrastructure along with any other documentation you think is appropriate
+Provide and document a mechanism for scaling the service and delivering the application to a larger audience
+Describe a possible solution for CI and/or CI/CD in order to release a new version of the application to production without any downtime
 ### Example Successful response:
 ```html
 curl -v https://go.app.faceit.challenge-task.link/health                                                                         ✔  49s  app 
