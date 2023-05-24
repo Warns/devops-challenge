@@ -6,7 +6,7 @@ Keeping the specified goals in mind, the repository is converted into a scalable
 ### FACEIT Infra Diagram
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
 
-### FACEIT CICD Diagram
+### FACEIT CICD Diagram (Created as my suggested example)
 This is a CICD flow with replaceable and pluggable components which can work for both ECS or EKS.
 ![faceit-cicd-diagram](diagrams/faceit_cicd.png)
 
