@@ -12,7 +12,7 @@ This is a CICD flow with replaceable and pluggable components which can work for
 
 Notes:
 - Dockerized the Go application with a multi-stage build and non-root user.
-- Github Actions workflow builds and tags the docker image, scans the image with Trivy and then, if succeeded (aka no vulnerabilities), pushes the image to ECR.
+- Github Actions workflow builds and tags the docker image, scans the image with Trivy and then, if succeeded (aka no vulnerabilities), pushes the image to ECR with OIDC authentication.
 - The application is deployed to an ECS cluster in 2 AZs.
 - The application is fronted with an ALB for load balancing.
 - The application receives the RDS Postgres credentials as environment variables in the container runtime.
