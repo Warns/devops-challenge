@@ -4,9 +4,9 @@ Keeping the specified goals in mind, the repository is converted into a scalable
 <br>Access the live application on AWS at: https://go.app.faceit.challenge-task.link/health.<br>~_(Will be up during work hours until reviewed by FACEIT team)_~ _The link is temporarily unavailable._<br>Please note that I have taken down the solution temporarily to optimize costs. As I'm currently running on the AWS free tier, continued usage was incurring expenses.
 
 I will deploy the solution promptly when requested by FACEIT team.
-<br> below is a gif of the response message received with with `curl`:
-![output](https://github.com/Warns/devops-challenge/assets/4021052/3f96904f-57e4-46eb-a76d-ed7f3795281b)
 
+below is a gif of the response message received with with `curl`:
+![output](https://github.com/Warns/devops-challenge/assets/4021052/5994727c-d633-49d0-90e2-65c0e3911485)
 
 ### FACEIT Infra Diagram
 ![faceit-infra-diagram](diagrams/faceit_infra.png)
