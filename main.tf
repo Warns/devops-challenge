@@ -41,16 +41,6 @@ module "faceit_vpc_flow_logs" {
   context = module.this.context
 }
 
-module "faceit_ecr" {
-  source = "./modules/aws-ecr"
-
-  enabled              = var.enable_ecr
-  scan_images_on_push  = var.ecr_scan_images_on_push
-  image_tag_mutability = var.ecr_image_tag_mutability
-
-  context = module.this.context
-}
-
 resource "aws_ecs_cluster" "faceit_cluster" {
   name = module.this.id
   tags = module.this.tags
